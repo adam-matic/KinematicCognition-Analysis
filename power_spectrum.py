@@ -82,7 +82,8 @@ def get_power_spectrum_c(xs_raw, ys_raw, ts_raw, dtheta=0.005, tolerance=0.00000
     
     xf = interpolate.UnivariateSpline(ts_raw, xs_raw, k=3, s=0)
     yf = interpolate.UnivariateSpline(ts_raw, ys_raw, k=3, s=0)
-    ts = np.arange(ts_raw[0], ts_raw[-1], 0.005)
+    ll = len(ts_raw)
+    ts = np.arange(ts_raw[0], ts_raw[ll-1], 0.005)
     
     xs = xf(ts)
     ys = yf(ts)
